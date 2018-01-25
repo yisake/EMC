@@ -1,0 +1,168 @@
+######################array
+####release 
+internval  release
+upc-Unity  Bald-eagle
+
+#######Swarm reserve
+bc-d1010
+bc-d1430
+bs-d9520
+bs-d9562
+
+####SVN:
+svn://10.244.82.203/qa/Migration/SingleHop
+
+####twiki
+https://ccoe.lss.emc.com/twiki/bin/view/ESD/Celerra/AccurevUsage#Steps_to_build_Dart_for_VNX
+
+####HTML5 javascript
+http://naviwiki.clrcase.lab.emc.com/gts/doku.php?id=html5_investigation&s[]=nextgen&s[]=gui
+
+####restapi
+https://10.109.221.120/apidocs/index.html
+
+####team forge
+##How to Build Rockies(in windows)
+https://teamforge6.usd.lab.emc.com/sf/wiki/do/viewPage/projects.usd_development_environment/wiki/HowToBuildRockies
+
+
+
+####Automatos
+cd C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Tests\Dev
+C:\Perl\bin\perl.exe C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Framework\Dev\bin\automatos.pl -I C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Framework\Dev\lib -I C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Framework\Dev -I C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\UtilityLibraries\Dev --configFile  C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Tests\Dev\FunctionalTest\FileMetroMirrorManager\config\mainConfigFile.xml --testBedFile C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Tests\Dev\FunctionalTest\FileMetroMirrorManager\config\testBedInfoMVPair10.xml --testSetFile C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\Automatos\Tests\Dev\FunctionalTest\FileMetroMirrorManager\config\testSetInfoMV.xml --localBaseLogPath C:\Users\jenkins\jenkins\workspace\AFM_Platte_Test\logs	 
+
+
+######################Desktop
+#### path
+\\cnrdnavifs\CelerraCore\VDM
+
+####AFM package
+\\rpc3172.clrcase.lab.emc.com\inetpub\ftproot\navisphere\open\Windows\AFM
+
+####FMM package
+\\rpc3172.clrcase.lab.emc.com\inetpub\ftproot\navisphere\open\Windows\FMM\Andes\
+
+
+######################Tool
+####accurev update
+sudo accurev upgrade_client
+achost-shanghai.usd.lab.emc.com
+achost-rtp.usd.lab.emc.com
+achost-re.usd.lab.emc.com
+
+##make workspace
+accurev mkws -w mig -b upc-longa4-private1-usr -l  ./CI-longa4-private1-usr -i 
+accurev login -n>>>>>>>>not expired
+accurev keep
+accurev promote -d -3 -I ARxxxx -c “ put some comments” 
+accurev pop ###not need account
+cd /home/c4dev
+accurev pop -v ctt-Apollo-int  -L . -R ./
+accurev pop -v ctt-Apollo-int  -L precheckin/ -R ./Automatos/Tests/Dev/FunctionalTest/SingleHopMigration/SingleHopMigrationDataPath
+
+
+##workspace overlap
+accurev stat -o
+accurev mkws -w CI-longa4-private1-usr-hf -b upc-longa4-private1-usr -l /home/jenkins-build/upc-longa4-private1-usr/CI-longa4-private1-usr-hf -i 
+accurev mkws -w CI-longa4-private1-usr1 -b upc-longa4-private1-usr -l /home/jenkins-build/upc-longa4-private1-usr/CI-longa4-private1-usr1 -i 
+accurev rmws mig_svc_usdciauto
+accurev reactivate wspace CI-longa4-private1-usr_svc_usdciauto
+##-w ws full name -l location
+accurev chws -b upc-longa4-private1-usr -w CI-longa4-private1-usr-Bullseye_svc_usdciauto -l CI-longa4-private1-usr-Bullseye
+accurev mkstream -s gizmo_s1 -b gizmo -t "2000/05/02 14:55:00"
+
+
+####add to keep
+accurev add -c "Initial version" -R imt
+
+##stream overlap
+accurev stat -o -s upc-longa4-private1-usr(stream name)
+
+net use T: \\esd-tls02.meng.lab.emc.com\toolbox /user:svc_usdciauto
+
+####job generation
+./workspace/Job_Generation/devenable/CI/Jenkins/CodeGeneration/KittyHawkBuildJob/JOB_GenerationDSL.groovy
+./workspace/Job_Generation/devenable/CI/Jenkins/CodeGeneration/KittyHawkBuildJob/UpdateAllDSL.groovy
+hudson.plugins.accurev.AccurevSCM
+
+2.upc-longa4-private1-usr
+##job ws
+/home/jenkins-build/workspace/upc-longa4-private1-usr_Build-Suse
+##CI path
+/CI-build/upc-longa4-private1-usr_Build-Suse
+##accurev ws
+accurev mkws -w CI-longa4-private1-usr -b upc-longa4-private1-usr -l /home/jenkins-build/upc-longa4-private1-usr/CI-longa4-private1-usr -i 
+accurev rmws mig_svc_usdciauto
+accurev reactivate wspace CI-longa4-private1-usr_svc_usdciauto
+accurev mkws -w CI-RmtFSMigration-cs-bld_khawk-ws -b upc-RmtFSMigration-cs -l /home/jenkins-build/upc-RmtFSMigration-cs/CI-RmtFSMigration-cs-bld_khawk-ws -i 
+accurev chws -b upc-longa4-private1-usr -w CI-longa4-private1-usr-Bullseye_svc_usdciauto -l CI-longa4-private1-usr-Bullseye
+
+####merge
+accurev stat -o -s upc-longa4-private1-usr 
+accurev stat -o -s upc-longa4-private1-usr -s streamName
+accurev merge -o -s upc-longa4-private1-usr
+
+####get transcation
+accurev hist -H achost-re.usd.lab.emc.com:5050 -fx -p upc -s upc-longa4-private1-usr -t now.1 -k chstream
+accurev hist -H achost-re.usd.lab.emc.com:5050 -fx -p upc -s upc-longa4-private1-usr -t now.1 -k promote
+accurev hist -fx -p upc -s upc-longa4-private1-usr -t now.100 -k promote
+accurev hist -fx -p ctt -s ctt-Apollo-int -t now.10 -k promote
+
+###John's ws
+accurev mkws -w CI-bankij-imt-usr -b upc-bankij-imt-usr -l /home/jenkins-build/upc-bankij-imt-usr/CI-bankij-imt-usr -i 
+
+
+
+#######VDM jenkins job
+##accurev account/NT account
+svc_usdciauto
+y!4ataZaTrun+Th
+CI-SLES12-slave-tmpl
+
+####Testing
+triage <array_name> --upload AR<AR_number>
+ext:
+    triage bs-d9562 --upload --AR 000000000711668
+
+####Remedy    
+Issue reproduction:
+1.
+2.
+3.
+           
+Expect result:
+1.
+2.
+3.
+
+Actual result:
+1.pass
+2.pass
+3.pass
+
+    
+    
+
+######SPEC sfs
+SpecInstall.java
+    Executing run 1 of 1 ... Manager.execute failed for command: sfsnfs3 -N 1 -l 1000  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 1 -w 300 -U 500 -g 500 -M khawk-dev-huangc11.usd.lab.emc.com  10.109.173.20:/regsrc1
+khawk-dev-longa4:/mnt/regsrc1/CL1/d0lmlhu # df .
+
+####1.SPECsfs load and space
+LOAD="10"
+INCR_LOAD=10
+NUM_RUNS=1
+PROCS=1
+Filesystem             1K-blocks    Used Available Use% Mounted on
+10.109.173.20:/regsrc1   2000640 1079296    921344  54% /mnt/regsrc1
+khawk-dev-longa4:/mnt/regsrc1/CL1/d0lmlhu # df -h .
+Filesystem              Size  Used Avail Use% Mounted on
+10.109.173.20:/regsrc1  2.0G  1.1G  900M  54% /mnt/regsrc1
+
+
+Before starting the benchmark, ensure that the prime client can execute commands on the remote clients using ssh with no password challenges.  Refer to Appendix B for an example of how to do this.
+
+
+$DEFAULT_RECIPIENTS
+###mount the address(\\esd-tls02.meng.lab.emc.com\toolbox) at T:
+###net use T: \\esd-tls02.meng.lab.emc.com\toolbox
